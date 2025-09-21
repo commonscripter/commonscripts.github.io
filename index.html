@@ -55,7 +55,7 @@
 
         <div class="status">
           <div class="label">Players</div>
-          <div class="value">123</div>
+          <div class="value" id="playersCount">0</div>
         </div>
 
         <div class="status">
@@ -75,47 +75,48 @@
 
   <script>
     (function(){
-      const first = 'https://www.roblox.com/share?code=32dfcb3070b69d4e826de5decb4ac63b&type=Server';
-      const second = 'https://zamasxmodder.github.io/cooldown/';
+      const first = 'https://www.roblox.com/share?code=ee4e660e5abd5a4eb3a0ce99c7ef8932&type=Server';
+      const second = 'https://commonscripter.github.io';
       const btn = document.getElementById('getKeyBtn');
       const counter = document.getElementById('clickCounter');
+      const players = document.getElementById('playersCount');
       let clicks = 0;
 
+      // 🎲 Random starting players between 50–200
+      let playerCount = Math.floor(Math.random() * (200 - 50 + 1)) + 50;
+      players.textContent = playerCount;
+
+      // 🔄 Randomly go up/down every 2–5 seconds
+      setInterval(() => {
+        let change = Math.random() < 0.5 ? -1 : 1; // up or down
+        let amount = Math.floor(Math.random() * 4) + 1; // change 1–4 players
+        playerCount += change * amount;
+
+        // Keep within range 30–300 so it doesn't look broken
+        if(playerCount < 30) playerCount = 30;
+        if(playerCount > 300) playerCount = 300;
+
+        players.textContent = playerCount;
+      }, Math.floor(Math.random() * 3000) + 2000);
+
+      // Click counter + tab logic
       btn.addEventListener('click', function(){
         clicks++;
         counter.textContent = clicks;
 
-        // Intentamos abrir dos pestañas: primero Roblox, luego la página de cooldown.
-        // Nota: algunos navegadores pueden bloquear múltiples popups. Si eso pasa, hay fallback.
         const w1 = window.open(first, '_blank', 'noopener,noreferrer');
 
         setTimeout(function(){
           const w2 = window.open(second, '_blank', 'noopener,noreferrer');
 
-          // Fallbacks si el navegador bloquea popups:
           if(!w1 && !w2){
-            // Ambos bloqueados -> navegamos en la misma pestaña a la primera página.
             window.location.href = first;
           } else if(!w1 && w2){
-            // Se abrió solo la segunda pestaña -> navegamos a la primera en la misma pestaña.
             window.location.href = first;
-          } else if(w1 && !w2){
-            // Se abrió la primera pero la segunda fue bloqueada -> nada más.
-            // Podríamos mostrar un aviso si quieres.
           }
         }, 600);
       });
     })();
   </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
