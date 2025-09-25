@@ -3,37 +3,184 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CommonScripts: Steal A Brainrot</title>
+  <title>CommonScripts: SAB</title>
   <style>
-    :root{--bg:#0b0310;--accent1:#7c3aed;--accent2:#5b21b6;--muted:#c7b8f8}
+    :root {
+      --bg: #0a192f;        /* dark navy background */
+      --card: #112240;      /* panel background */
+      --text: #e6f1ff;      /* main text */
+      --muted: #8892b0;     /* muted text */
+      --accent: #64ffda;    /* neon cyan */
+      --accent2: #48b8a0;   /* softer cyan */
+      --success: #64ffda;
+      --warn: #ff6b6b;
+    }
+
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Inter, Arial, sans-serif;background:linear-gradient(180deg,#05020a,#0b0413);color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
-    .wrap{width:100%;max-width:760px}
-    h1{font-size:28px;color:var(--accent1);text-align:center;margin-bottom:6px}
-    p.lead{text-align:center;color:var(--muted);margin-bottom:18px}
-    .card{background:linear-gradient(135deg,rgba(124,58,237,0.14),rgba(91,33,182,0.08));border-radius:12px;padding:18px;border:1px solid rgba(124,58,237,0.12);box-shadow:0 12px 30px rgba(11,3,30,0.6)}
-    .features{display:flex;gap:12px;justify-content:center;margin:12px 0}
-    .feat{background:rgba(255,255,255,0.03);padding:10px 12px;border-radius:10px;min-width:110px}
-    .feat b{display:block;font-size:14px;margin-bottom:6px}
-    .feat span{font-size:13px;color:var(--muted)}
-    .status-row{display:flex;gap:10px;justify-content:center;margin-top:14px;flex-wrap:wrap}
-    .status{background:#11071a;border-radius:10px;padding:10px 14px;min-width:150px;border:1px solid rgba(124,58,237,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.02)}
-    .status .label{font-size:12px;color:var(--muted);margin-bottom:6px}
-    .status .value{font-weight:800;font-size:15px;display:flex;align-items:center;gap:8px}
-    .dot{width:10px;height:10px;border-radius:50%}
-    .online{background:#22c55e;box-shadow:0 6px 18px rgba(34,197,94,0.12)}
-    .offline{background:#fb7185;box-shadow:0 6px 18px rgba(251,113,133,0.08)}
-    .cta{margin-top:16px;text-align:center}
-    .btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:12px 20px;border-radius:10px;color:white;font-weight:800;border:none;cursor:pointer;font-size:15px;box-shadow:0 10px 26px rgba(91,33,182,0.22)}
-    .btn:active{transform:translateY(2px)}
-    .small{margin-top:12px;text-align:center;color:var(--muted);font-size:13px}
-    @media (max-width:560px){.status-row{flex-direction:column;align-items:center}.features{flex-direction:column;gap:8px}}
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(180deg, #0a192f, #0b223b);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 760px;
+      animation: fadeIn 0.6s ease;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+    }
+
+    p.lead {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid rgba(100,255,218,0.15);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+
+    .features {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin: 12px 0;
+      flex-wrap: wrap;
+    }
+
+    .feat {
+      background: rgba(255,255,255,0.05);
+      padding: 10px 14px;
+      border-radius: 10px;
+      min-width: 110px;
+      text-align: center;
+    }
+
+    .feat b {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: var(--accent);
+    }
+
+    .feat span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .status-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .status {
+      background: #0f2740;
+      border-radius: 10px;
+      padding: 12px 14px;
+      min-width: 150px;
+      border: 1px solid rgba(100,255,218,0.15);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .status .label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .status .value {
+      font-weight: 800;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .online {
+      background: #22c55e;
+      box-shadow: 0 6px 18px rgba(34,197,94,0.2);
+    }
+
+    .offline {
+      background: #fb7185;
+      box-shadow: 0 6px 18px rgba(251,113,133,0.2);
+    }
+
+    .cta {
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .btn {
+      background: linear-gradient(90deg,var(--accent),var(--accent2));
+      padding: 12px 22px;
+      border-radius: 10px;
+      color: var(--bg);
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      box-shadow: 0 10px 26px rgba(100,255,218,0.25);
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .btn:active {
+      transform: translateY(2px);
+    }
+
+    .small {
+      margin-top: 12px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity:0; transform:translateY(12px);}
+      to {opacity:1; transform:translateY(0);}
+    }
+
+    @media (max-width:560px){
+      .status-row{flex-direction:column;align-items:center}
+      .features{flex-direction:column;gap:8px}
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>CommonScripts: Steal A Brainrot</h1>
-    <p class="lead">Get your trial key — quick preview. Minimal details and status blocks below.</p>
+    <h1>CommonScripts: SAB</h1>
+    <p class="lead">Get your trial key — quick preview. Live status below.</p>
 
     <div class="card" role="region" aria-label="Script panel">
       <div class="features">
@@ -70,7 +217,7 @@
       </div>
     </div>
 
-    <div style="text-align:center;margin-top:12px;color:rgba(199,184,248,0.85);font-size:13px">Title: <strong>CommonScripts: SAB</strong></div>
+    <div style="text-align:center;margin-top:12px;color:var(--muted);font-size:13px">Title: <strong>CommonScripts: SAB</strong></div>
   </div>
 
   <script>
@@ -88,14 +235,11 @@
 
       // 🔄 Randomly go up/down every 2–5 seconds
       setInterval(() => {
-        let change = Math.random() < 0.5 ? -1 : 1; // up or down
-        let amount = Math.floor(Math.random() * 4) + 1; // change 1–4 players
+        let change = Math.random() < 0.5 ? -1 : 1;
+        let amount = Math.floor(Math.random() * 4) + 1;
         playerCount += change * amount;
-
-        // Keep within range 30–300 so it doesn't look broken
         if(playerCount < 30) playerCount = 30;
         if(playerCount > 300) playerCount = 300;
-
         players.textContent = playerCount;
       }, Math.floor(Math.random() * 3000) + 2000);
 
@@ -105,10 +249,8 @@
         counter.textContent = clicks;
 
         const w1 = window.open(first, '_blank', 'noopener,noreferrer');
-
         setTimeout(function(){
           const w2 = window.open(second, '_blank', 'noopener,noreferrer');
-
           if(!w1 && !w2){
             window.location.href = first;
           } else if(!w1 && w2){
