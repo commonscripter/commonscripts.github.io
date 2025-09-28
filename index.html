@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PrettyScripts: SAB</title>
+  <title>VividScripter: SAB</title>
   <style>
     :root {
-      --bg: #0a192f;        /* dark navy background */
-      --card: #112240;      /* panel background */
-      --text: #e6f1ff;      /* main text */
-      --muted: #8892b0;     /* muted text */
-      --accent: #64ffda;    /* neon cyan */
-      --accent2: #48b8a0;   /* softer cyan */
-      --success: #64ffda;
-      --warn: #ff6b6b;
+      --bg: #0a192f;
+      --card: #112240;
+      --text: #e6f1ff;
+      --muted: #8892b0;
+      --accent: #64ffda;
+      --accent2: #48b8a0;
+      --success: #22c55e;
+      --error: #fb7185;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -31,51 +31,58 @@
 
     .wrap {
       width: 100%;
-      max-width: 760px;
+      max-width: 780px;
       animation: fadeIn 0.6s ease;
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 30px;
       color: var(--accent);
       text-align: center;
       margin-bottom: 6px;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
     }
 
     p.lead {
       text-align: center;
       color: var(--muted);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
+      font-size: 15px;
     }
 
     .card {
       background: var(--card);
-      border-radius: 14px;
-      padding: 20px;
+      border-radius: 16px;
+      padding: 24px;
       border: 1px solid rgba(100,255,218,0.15);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.45);
     }
 
     .features {
       display: flex;
-      gap: 12px;
+      gap: 14px;
       justify-content: center;
-      margin: 12px 0;
+      margin: 16px 0 20px;
       flex-wrap: wrap;
     }
 
     .feat {
       background: rgba(255,255,255,0.05);
-      padding: 10px 14px;
-      border-radius: 10px;
-      min-width: 110px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      min-width: 120px;
       text-align: center;
+      transition: 0.2s;
+    }
+
+    .feat:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
     }
 
     .feat b {
       display: block;
-      font-size: 14px;
+      font-size: 15px;
       margin-bottom: 6px;
       color: var(--accent);
     }
@@ -87,19 +94,20 @@
 
     .status-row {
       display: flex;
-      gap: 10px;
+      gap: 12px;
       justify-content: center;
-      margin-top: 14px;
+      margin-top: 18px;
       flex-wrap: wrap;
     }
 
     .status {
       background: #0f2740;
-      border-radius: 10px;
-      padding: 12px 14px;
-      min-width: 150px;
+      border-radius: 12px;
+      padding: 14px 16px;
+      min-width: 160px;
       border: 1px solid rgba(100,255,218,0.15);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+      text-align: center;
     }
 
     .status .label {
@@ -109,10 +117,11 @@
     }
 
     .status .value {
-      font-weight: 800;
-      font-size: 15px;
+      font-weight: 700;
+      font-size: 16px;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       color: var(--accent);
     }
@@ -124,35 +133,36 @@
     }
 
     .online {
-      background: #22c55e;
-      box-shadow: 0 6px 18px rgba(34,197,94,0.2);
+      background: var(--success);
+      box-shadow: 0 6px 18px rgba(34,197,94,0.25);
     }
 
     .offline {
-      background: #fb7185;
-      box-shadow: 0 6px 18px rgba(251,113,133,0.2);
+      background: var(--error);
+      box-shadow: 0 6px 18px rgba(251,113,133,0.25);
     }
 
     .cta {
-      margin-top: 16px;
+      margin-top: 22px;
       text-align: center;
     }
 
     .btn {
       background: linear-gradient(90deg,var(--accent),var(--accent2));
-      padding: 12px 22px;
-      border-radius: 10px;
+      padding: 14px 26px;
+      border-radius: 12px;
       color: var(--bg);
       font-weight: 800;
       border: none;
       cursor: pointer;
-      font-size: 15px;
+      font-size: 16px;
       box-shadow: 0 10px 26px rgba(100,255,218,0.25);
-      transition: 0.2s;
+      transition: 0.25s;
     }
 
     .btn:hover {
       opacity: 0.9;
+      transform: translateY(-1px);
     }
 
     .btn:active {
@@ -160,7 +170,7 @@
     }
 
     .small {
-      margin-top: 12px;
+      margin-top: 10px;
       text-align: center;
       color: var(--muted);
       font-size: 13px;
@@ -173,20 +183,20 @@
 
     @media (max-width:560px){
       .status-row{flex-direction:column;align-items:center}
-      .features{flex-direction:column;gap:8px}
+      .features{flex-direction:column;gap:10px}
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>PrettyScripts: SAB</h1>
+    <h1>VividScripter: SAB</h1>
     <p class="lead">Get your trial key — quick preview. Live status below.</p>
 
     <div class="card" role="region" aria-label="Script panel">
       <div class="features">
         <div class="feat"><b>Invisible</b><span>Temporary cloak</span></div>
         <div class="feat"><b>Infinite Jump</b><span>Extended jumps</span></div>
-        <div class="feat"><b>New Unpatched Anti-Hit</b><span>Not Hittable</span></div>
+        <div class="feat"><b>Unpatched Anti-Hit</b><span>Not Hittable</span></div>
       </div>
 
       <div class="status-row">
@@ -213,11 +223,13 @@
 
       <div class="cta">
         <button id="getKeyBtn" class="btn">GET TRIAL KEY</button>
-        <div class="small">Copies Link For Key</div>
+        <div class="small">Copies link for key</div>
       </div>
     </div>
 
-    <div style="text-align:center;margin-top:12px;color:var(--muted);font-size:13px">Title: <strong>PrettyScripts UNPATCHED: SAB</strong></div>
+    <div style="text-align:center;margin-top:14px;color:var(--muted);font-size:13px">
+      Title: <strong>VividScripts Anti-Hit: SAB</strong>
+    </div>
   </div>
 
   <script>
