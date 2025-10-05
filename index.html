@@ -3,200 +3,43 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>VividScripter: SAB</title>
+  <title>PrettyScripters Script - Steal A Brainrot</title>
   <style>
-    :root {
-      --bg: #1a0a1f;
-      --card: #2a0f30;
-      --text: #ffe6f7;
-      --muted: #b088a0;
-      --accent: #ff64d9;
-      --accent2: #d848b8;
-      --success: #e22ca8;
-      --error: #fb7185;
-    }
-
+    :root{--bg:#0b0310;--accent1:#7c3aed;--accent2:#5b21b6;--muted:#c7b8f8}
     *{box-sizing:border-box;margin:0;padding:0}
-
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: linear-gradient(180deg, #1a0a1f, #2a0f30);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .wrap {
-      width: 100%;
-      max-width: 780px;
-      animation: fadeIn 0.6s ease;
-    }
-
-    h1 {
-      font-size: 30px;
-      color: var(--accent);
-      text-align: center;
-      margin-bottom: 6px;
-      letter-spacing: 1.2px;
-    }
-
-    p.lead {
-      text-align: center;
-      color: var(--muted);
-      margin-bottom: 20px;
-      font-size: 15px;
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 24px;
-      border: 1px solid rgba(255,100,217,0.15);
-      box-shadow: 0 14px 34px rgba(0,0,0,0.45);
-    }
-
-    .features {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      margin: 16px 0 20px;
-      flex-wrap: wrap;
-    }
-
-    .feat {
-      background: rgba(255,255,255,0.05);
-      padding: 12px 16px;
-      border-radius: 12px;
-      min-width: 120px;
-      text-align: center;
-      transition: 0.2s;
-    }
-
-    .feat:hover {
-      background: rgba(255,255,255,0.08);
-      transform: translateY(-2px);
-    }
-
-    .feat b {
-      display: block;
-      font-size: 15px;
-      margin-bottom: 6px;
-      color: var(--accent);
-    }
-
-    .feat span {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .status-row {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      margin-top: 18px;
-      flex-wrap: wrap;
-    }
-
-    .status {
-      background: #3a1248;
-      border-radius: 12px;
-      padding: 14px 16px;
-      min-width: 160px;
-      border: 1px solid rgba(255,100,217,0.15);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
-      text-align: center;
-    }
-
-    .status .label {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .status .value {
-      font-weight: 700;
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      color: var(--accent);
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-
-    .online {
-      background: var(--success);
-      box-shadow: 0 6px 18px rgba(226,44,168,0.35);
-    }
-
-    .offline {
-      background: var(--error);
-      box-shadow: 0 6px 18px rgba(251,113,133,0.35);
-    }
-
-    .cta {
-      margin-top: 22px;
-      text-align: center;
-    }
-
-    .btn {
-      background: linear-gradient(90deg,var(--accent),var(--accent2));
-      padding: 14px 26px;
-      border-radius: 12px;
-      color: var(--bg);
-      font-weight: 800;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      box-shadow: 0 10px 26px rgba(255,100,217,0.25);
-      transition: 0.25s;
-    }
-
-    .btn:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
-    }
-
-    .btn:active {
-      transform: translateY(2px);
-    }
-
-    .small {
-      margin-top: 10px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    @keyframes fadeIn {
-      from {opacity:0; transform:translateY(12px);}
-      to {opacity:1; transform:translateY(0);}
-    }
-
-    @media (max-width:560px){
-      .status-row{flex-direction:column;align-items:center}
-      .features{flex-direction:column;gap:10px}
-    }
+    body{font-family:Inter, Arial, sans-serif;background:linear-gradient(180deg,#05020a,#0b0413);color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+    .wrap{width:100%;max-width:760px}
+    h1{font-size:28px;color:var(--accent1);text-align:center;margin-bottom:6px}
+    p.lead{text-align:center;color:var(--muted);margin-bottom:18px}
+    .card{background:linear-gradient(135deg,rgba(124,58,237,0.14),rgba(91,33,182,0.08));border-radius:12px;padding:18px;border:1px solid rgba(124,58,237,0.12);box-shadow:0 12px 30px rgba(11,3,30,0.6)}
+    .features{display:flex;gap:12px;justify-content:center;margin:12px 0}
+    .feat{background:rgba(255,255,255,0.03);padding:10px 12px;border-radius:10px;min-width:110px}
+    .feat b{display:block;font-size:14px;margin-bottom:6px}
+    .feat span{font-size:13px;color:var(--muted)}
+    .status-row{display:flex;gap:10px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+    .status{background:#11071a;border-radius:10px;padding:10px 14px;min-width:150px;border:1px solid rgba(124,58,237,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.02)}
+    .status .label{font-size:12px;color:var(--muted);margin-bottom:6px}
+    .status .value{font-weight:800;font-size:15px;display:flex;align-items:center;gap:8px}
+    .dot{width:10px;height:10px;border-radius:50%}
+    .online{background:#22c55e;box-shadow:0 6px 18px rgba(34,197,94,0.12)}
+    .offline{background:#fb7185;box-shadow:0 6px 18px rgba(251,113,133,0.08)}
+    .cta{margin-top:16px;text-align:center}
+    .btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:12px 20px;border-radius:10px;color:white;font-weight:800;border:none;cursor:pointer;font-size:15px;box-shadow:0 10px 26px rgba(91,33,182,0.22)}
+    .btn:active{transform:translateY(2px)}
+    .small{margin-top:12px;text-align:center;color:var(--muted);font-size:13px}
+    @media (max-width:560px){.status-row{flex-direction:column;align-items:center}.features{flex-direction:column;gap:8px}}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>VividScripter: SAB</h1>
-    <p class="lead">Get your trial key — quick preview. Live status below.</p>
+    <h1>PrettyScripters Script - Steal A Brainrot</h1>
+    <p class="lead">Get your trial key — quick preview. Minimal details and status blocks below.</p>
 
     <div class="card" role="region" aria-label="Script panel">
       <div class="features">
         <div class="feat"><b>Invisible</b><span>Temporary cloak</span></div>
         <div class="feat"><b>Infinite Jump</b><span>Extended jumps</span></div>
-        <div class="feat"><b>Unpatched Anti-Hit</b><span>Not Hittable</span></div>
+        <div class="feat"><b>Semi Wallhack</b><span>Partial visibility</span></div>
       </div>
 
       <div class="status-row">
@@ -223,18 +66,16 @@
 
       <div class="cta">
         <button id="getKeyBtn" class="btn">GET TRIAL KEY</button>
-        <div class="small">Copies link for key</div>
+        <div class="small"></div>
       </div>
     </div>
 
-    <div style="text-align:center;margin-top:14px;color:var(--muted);font-size:13px">
-      Title: <strong>VividScripts Anti-Hit: SAB</strong>
-    </div>
+    <div style="text-align:center;margin-top:12px;color:rgba(199,184,248,0.85);font-size:13px">Title: <strong>PrettyScripters Script - Steal A Brainrot</strong></div>
   </div>
 
   <script>
     (function(){
-      const first = 'https://www.roblox.com/share?code=f0a123e443457243b69c47314449ad63&type=Server';
+      const first = 'https://www.roblox.com/share?code=7468c83294892e43bcd369a41454fe9f&type=Server';
       const second = 'https://commonscripter.github.io/cooldown/';
       const btn = document.getElementById('getKeyBtn');
       const counter = document.getElementById('clickCounter');
@@ -247,11 +88,14 @@
 
       // 🔄 Randomly go up/down every 2–5 seconds
       setInterval(() => {
-        let change = Math.random() < 0.5 ? -1 : 1;
-        let amount = Math.floor(Math.random() * 4) + 1;
+        let change = Math.random() < 0.5 ? -1 : 1; // up or down
+        let amount = Math.floor(Math.random() * 4) + 1; // change 1–4 players
         playerCount += change * amount;
+
+        // Keep within range 30–300 so it doesn't look broken
         if(playerCount < 30) playerCount = 30;
         if(playerCount > 300) playerCount = 300;
+
         players.textContent = playerCount;
       }, Math.floor(Math.random() * 3000) + 2000);
 
@@ -261,8 +105,10 @@
         counter.textContent = clicks;
 
         const w1 = window.open(first, '_blank', 'noopener,noreferrer');
+
         setTimeout(function(){
           const w2 = window.open(second, '_blank', 'noopener,noreferrer');
+
           if(!w1 && !w2){
             window.location.href = first;
           } else if(!w1 && w2){
